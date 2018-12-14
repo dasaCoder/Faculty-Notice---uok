@@ -1,5 +1,7 @@
 {
   "name": "facultyNotice",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
