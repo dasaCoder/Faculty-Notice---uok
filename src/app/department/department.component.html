@@ -1,14 +1,14 @@
 
       <ion-header>
-          <ion-toolbar [color]="brown" >
-            <ion-title >
-                {{department}}
-              
-            </ion-title>
-            <br>
-            <h6 style="color: white">Faculty Notices App - UOK</h6>
-          
-          </ion-toolbar>
+          <ion-toolbar [color]="brown" style="text-align:center">
+      
+              <ion-title style="background:#5C0606">
+                  <img src="../../assets/icon/Kelaniya.png"  style="display:inline; width: 50px" />
+                 <h3 style="color: white; margin-top: 5px">Faculty Notices App - UOK</h3>
+              </ion-title>
+              <h6 style="color: white">{{department}}</h6>
+            </ion-toolbar>
+         
           <h6 *ngIf="notices.length == 0" style="padding: 10px; color: white; background-color: red"> There are no Notices</h6>
         </ion-header>
       
@@ -28,4 +28,6 @@
       </ion-content>
 
 
-
+      <div class = "bar bar-footer bar-dark">
+          <h1 class = "title">University of Kelaniya</h1>
+       </div>
