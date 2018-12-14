@@ -1,7 +1,7 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
+  <ion-toolbar [color]="brown">
+    <ion-title >
+      Faculty Notices App - UOK
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,9 @@
 <ion-content>
   <ion-list>
 
-    <ion-item *ngFor="let item of items">
+    <ion-item *ngFor="let item of items" style="cursor: pointer" href="/department/1" routerDirection="backward">
         {{ item.name }}
-        <ion-button href="/department/1" routerDirection="backward">Test</ion-button>
+        <!-- <ion-button href="/department/1" routerDirection="backward">Test</ion-button> -->
     </ion-item>
 
   </ion-list>

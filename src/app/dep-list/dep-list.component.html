@@ -1,10 +1,10 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+    <ion-toolbar [color]="brown">
+      <ion-title >
+        Faculty Notices App - UOK
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
 
 <ion-content>
   <ion-list>
@@ -16,7 +16,7 @@
       <ion-label>
         <h2>{{ dep.name }}</h2>
       </ion-label>
-      <ion-button (click)="presentModal(dep.name)">View</ion-button>
+      <ion-button (click)="presentModal(dep.name,dep.id)" *ngIf="notices[dep.id]" style="color: white; background:red">{{notices[dep.id].length}}</ion-button>
     </ion-item>
 
 

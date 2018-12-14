@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { DepartmentComponent } from '../department/department.component';
+import { HTTP } from '@ionic-native/http/ngx';
 
 //import { NavParams } from '@ionic/angular';
 
@@ -13,18 +14,83 @@ export class DepListComponent implements OnInit {
 
   departments = [];
   notices = [];
+  count = 0;
 
-  constructor(public modalCtr: ModalController) { 
-    //console.log("deplist", navParms.get('dep'));
-    //dep = navParms;
-    // http.get("https://sesatest.000webhostapp.com/public/api/notice/1/get")
-    //   .subscribe(data => {
-    //     console.log(data);
-    //   })
+  constructor(public modalCtr: ModalController, private http: HTTP) {
+    // console.log("deplist", navParms.get('dep'));
+    // dep = navParms;
+    this.notices[0] = [];
+    http.get('https://sesatest.000webhostapp.com/public/api/notice/1/get', {}, {})
+    .then(data => {
+      //this.count++;
+      this.notices[1] = JSON.parse(data.data);
+      console.log(data.status);
+      console.log(data.data); // data received by server
+      console.log(data.headers);
+  
+    })
+    .catch(error => {
+  
+      console.log(error);
+      console.log(error.error); // error message as string
+      console.log(error.headers);
+  
+    });
 
-    this.notices[0] = [{"id":1,"faculty_id":"1","department_id":"1","body":"i","created_at":"2018-12-10 01:13:35","updated_at":"2018-12-10 01:13:35"},{"id":2,"faculty_id":"1","department_id":"1","body":"this is notce","created_at":"2018-12-10 01:14:40","updated_at":"2018-12-10 01:14:40"},{"id":3,"faculty_id":"1","department_id":"1","body":"tete","created_at":"2018-12-10 01:24:32","updated_at":"2018-12-10 01:24:32"},{"id":4,"faculty_id":"1","department_id":"1","body":"df","created_at":"2018-12-10 09:04:54","updated_at":"2018-12-10 09:04:54"}];
+    http.get('https://sesatest.000webhostapp.com/public/api/notice/2/get', {}, {})
+    .then(data => {
+  
+      this.notices[2] = JSON.parse(data.data);
+      console.log(data.data);
+    })
+    .catch(error => {
+  
+      console.log(error);
+    });
 
-    
+    http.get('https://sesatest.000webhostapp.com/public/api/notice/3/get', {}, {})
+    .then(data => {
+  
+      this.notices[3] = JSON.parse(data.data);
+      console.log(data.data);
+    })
+    .catch(error => {
+  
+      console.log(error);
+    });
+
+    http.get('https://sesatest.000webhostapp.com/public/api/notice/4/get', {}, {})
+    .then(data => {
+  
+      this.notices[4] = JSON.parse(data.data);
+      console.log(data.data);
+    })
+    .catch(error => {
+  
+      console.log(error);
+    });
+
+    http.get('https://sesatest.000webhostapp.com/public/api/notice/5/get', {}, {})
+    .then(data => {
+  
+      this.notices[5] = JSON.parse(data.data);
+      console.log(data.data);
+    })
+    .catch(error => {
+  
+      console.log(error);
+    });
+
+    http.get('https://sesatest.000webhostapp.com/public/api/notice/6/get', {}, {})
+    .then(data => {
+  
+      this.notices[6] = JSON.parse(data.data);
+      console.log(data.data);
+    })
+    .catch(error => {
+  
+      console.log(error);
+    });
 
     this.departments = [
       {
@@ -56,14 +122,14 @@ export class DepListComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log("deplist oninit");
+    console.log("deplist oninit",this.notices);
   }
 
-  async presentModal(department) {
+  async presentModal(department, id) {
     const modal = await this.modalCtr.create({
       component: DepartmentComponent,
       componentProps: { 
-        notices: this.notices[0],
+        notices: this.notices[id],
         department: department
       }
     });

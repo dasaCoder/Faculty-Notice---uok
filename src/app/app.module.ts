@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DepListComponent } from './dep-list/dep-list.component';
 import { DepartmentComponent } from './department/department.component';
+import { HTTP } from '@ionic-native/http/ngx';
 
 @NgModule({
   declarations: [AppComponent, DepListComponent, DepartmentComponent],
@@ -21,6 +22,7 @@ import { DepartmentComponent } from './department/department.component';
   providers: [
     StatusBar,
     SplashScreen,
+    HTTP,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
